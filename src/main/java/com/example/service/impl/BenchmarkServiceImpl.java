@@ -15,10 +15,7 @@ public class BenchmarkServiceImpl implements BenchmarkService {
 
     private final CarDao carDao;
 
-//    private final Connection connection;
-
     public BenchmarkServiceImpl(Connection connection){
-//        this.connection = connection;
         this.carDao = new CarDaoImpl(connection);
     }
 
@@ -27,9 +24,6 @@ public class BenchmarkServiceImpl implements BenchmarkService {
         for(int i = 0; i < carsToGenerate; i++){
             carDao.generateCar();
         }
-
-        // NB: Da specifica non e' ben chiaro se far committare o no dalla chiusura del tryWithResource le transazioni avanzate, nel dubbio avrei buttato questa riga decommentata
-        // connection.rollback();
     }
 
     @Override
