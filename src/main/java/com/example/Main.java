@@ -16,8 +16,8 @@ public class Main {
         try(Connection connection = DBConnectionUtils.getConnection()){
             BenchmarkServiceImpl benchmarkService = new BenchmarkServiceImpl(connection);
 
-            benchmarkService.registerInsertStatementPerformance(insertExecutionNumber);
-            benchmarkService.registerSelectStatementPerformance(selectExecutionNumber);
+            benchmarkService.recordInsertStatementPerformance(insertExecutionNumber);
+            benchmarkService.recordSelectStatementPerformance(selectExecutionNumber);
 
             benchmarkService.printBenchmarkPerformance();
         }

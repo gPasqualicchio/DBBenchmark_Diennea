@@ -20,14 +20,14 @@ public class BenchmarkServiceImpl implements BenchmarkService {
     }
 
     @Override
-    public void registerInsertStatementPerformance(int carsToGenerate) throws SQLException {
+    public void recordInsertStatementPerformance(int carsToGenerate) throws SQLException {
         for(int i = 0; i < carsToGenerate; i++){
             carDao.generateCar();
         }
     }
 
     @Override
-    public void registerSelectStatementPerformance(int selectToExecute) throws SQLException {
+    public void recordSelectStatementPerformance(int selectToExecute) throws SQLException {
         List<Integer> carIdList = carDao.getCarIdList();
 
         for(int i = 0; i < selectToExecute; i++){
